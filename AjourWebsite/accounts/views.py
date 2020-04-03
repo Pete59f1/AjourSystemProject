@@ -6,7 +6,7 @@ def indexView(request):
     return render(request, 'index.html')
 
 
-@login_required
+@login_required(login_url='login_url')
 def dashboardView(request):
     return render(request, 'dashboard.html')
 

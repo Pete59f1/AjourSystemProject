@@ -1,7 +1,8 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    <h1>Login to system</h1>
+    <h1>Welcome to Ajour System</h1>
+    <h2>Please login to see your dashboard</h2>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
