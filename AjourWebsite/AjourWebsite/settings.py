@@ -70,6 +70,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AjourWebsite.wsgi.application'
 
+# Tried some custom authentication
+# AUTHENTICATION_BACKENS = ['AjourWebsite.CustomAuthentication.EmailBackend']
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
