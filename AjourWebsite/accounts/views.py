@@ -22,6 +22,7 @@ def registerView(request):
     return render(request, 'register.html', {'form': form})
 
 
+@login_required(login_url="login_url")
 def mlPrediction(request):
     param1 = request.POST.get("degreesValue")
     param2 = request.POST.get("weatherValue")
