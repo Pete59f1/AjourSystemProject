@@ -3,4 +3,18 @@
 {% block content %}
     <h1>Welcome to your dashboard, {{user.username}}</h1>
     <a href="{% url 'logout' %}">Logout</a>
+
+    <h2>Here is some machine learning</h2>
+    <form action="mlPrediction" method="post">
+        {% csrf_token %}
+        Degrees outside:
+        <input type="text" name="degreesValue" required><br><br>
+        Raining outside?:
+        <input type="text" name="weatherValue" required><br><br>
+
+        {{data_external}}<br><br>
+        {{data1}}
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
 {% endblock %}

@@ -20,3 +20,11 @@ def registerView(request):
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
+
+
+def mlPrediction(request):
+    param1 = request.POST.get("degreesValue")
+    param2 = request.POST.get("weatherValue")
+    prediction = "HEJJJE " + param1 + param2
+
+    return render(request, "dashboard.html", {"data1": prediction})
