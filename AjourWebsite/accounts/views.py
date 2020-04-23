@@ -35,16 +35,21 @@ def mlPrediction(request):
 
 
 def SQLInjection(request):
-    param1 = request.POST.get("userName")
-    query = "SELECT password FROM User WHERE username = '%s'" % param1
-    user = User.objects.raw(query)
+    # param1 = request.POST.get("userName")
+    query = "SELECT * FROM auth_user" # WHERE username = '%s'" % param1
+
+    # Show the table names
+    # tables = connection.introspection.table_names()
 
     with connection.cursor() as cursor:
-        cursor.execute("SELECT count(*) FROM users")
-        row = cursor.fetchone()
-        print(row)
+        cursor.execute(query)
+        userNames = cursor.fetchall()
 
     # The right way to write raw sql in django. This is more secure against sql injection
     # user = User.objects.raw('SELECT * FROM Users WHERE USERNAME = %s', [param1])
 
-    return render(request, "SQLInjection.html", {"data1": user})
+    # Links used
+    # https://stackoverflow.com/questions/5931586/raw-sql-queries-in-django-views
+    # https://docs.djangoproject.com/en/3.0/topics/db/sql/
+
+    return render(request, "SQLInjection.html", {"data1": userNames})
