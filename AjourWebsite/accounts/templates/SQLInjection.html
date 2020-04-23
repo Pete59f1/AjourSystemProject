@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>Show users</h1>
+    <form action="SQLInjection" method="post">
+        {% csrf_token %}
+        User name:
+        <input type="text" name="userName" required><br><br>
+
+        {{data_external}}<br><br>
+        {{data1}}
+        <br><br>
+        <input type="submit" value="Search">
+    </form>
+{% endblock %}
