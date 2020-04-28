@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db import connection
+import requests
 from AjourWebsite.accounts.MachineLearning import ML
 
 
@@ -11,7 +12,13 @@ def indexView(request):
 
 @login_required(login_url='login_url')
 def dashboardView(request):
-    return render(request, 'dashboard.html')
+    data = request.get('indsæt api url her!')
+    datajson = data.json()
+    return render(request, 'dashboard.html',
+                  {
+                      'dataNavn': datajson['navn'],
+                      'bla': datajson['bla']
+                  })
 
 
 def registerView(request):
