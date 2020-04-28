@@ -12,7 +12,7 @@ def indexView(request):
 
 @login_required(login_url='login_url')
 def dashboardView(request):
-    data = request.get('indsæt api url her!')
+    data = requests.get('indsæt api url her!')
     datajson = data.json()
     return render(request, 'dashboard.html',
                   {
