@@ -19,3 +19,10 @@ classifier.fit(X_train, y_train)
 # Getting model score
 predictions = classifier.predict(X_test)
 print(accuracy_score(y_test, predictions))
+
+
+class ML:
+
+     @staticmethod
+     def predict(x):
+          return classifier.predict(x)

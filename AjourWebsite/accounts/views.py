@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.db import connection
+from AjourWebsite.accounts.MachineLearning import ML
 
 
 def indexView(request):
@@ -34,6 +34,7 @@ def mlPrediction(request):
     return render(request, "dashboard.html", {"data1": prediction})
 
 
+# Not being used anymore
 def SQLInjection(request):
     # param1 = request.POST.get("userName")
     query = "SELECT * FROM auth_user" # WHERE username = '%s'" % param1
