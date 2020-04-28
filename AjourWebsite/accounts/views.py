@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.db import connection
 import requests
-from AjourWebsite.accounts.MachineLearning import ML
+# from AjourWebsite.accounts.MachineLearning import ML
 
 
 def indexView(request):
@@ -12,12 +12,12 @@ def indexView(request):
 
 @login_required(login_url='login_url')
 def dashboardView(request):
-    data = requests.get('indsæt api url her!')
+    data = requests.get('https://cr3d0pygtd.execute-api.eu-north-1.amazonaws.com/Prod/api/Values?fbclid=IwAR3IAjkZiGBTnVvBhWaT6cMup2YYfsrxq8sqJ_s874Lc9DX3Va-_Db-r9C8')
     datajson = data.json()
     return render(request, 'dashboard.html',
                   {
-                      'dataNavn': datajson['navn'],
-                      'bla': datajson['bla']
+                      'data': datajson,
+                      # 'bla': datajson['bla']
                   })
 
 
